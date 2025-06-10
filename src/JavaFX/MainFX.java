@@ -65,6 +65,36 @@ public class MainFX extends Application {
         primaryStage.show();
     }
 
+    public static void showAddStaffPage() throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainFX.class.getResource("Staff_UI.fxml"));
+        Parent root = loader.load();
+        primaryStage.setTitle("Staff UI");
+        primaryStage.setScene(new Scene(root, 1280, 800));
+        primaryStage.show();
+    }
+
+    public static void showClassUI() throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainFX.class.getResource("Class_UI.fxml"));
+        Parent root = loader.load();
+        primaryStage.setTitle("Class UI");
+        primaryStage.setScene(new Scene(root, 1280, 800));
+        primaryStage.show();
+    }
+
+     public static void showEnrollmentPage() throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainFX.class.getResource("EnrollmentFX.fxml"));
+        Parent root = loader.load();
+        primaryStage.setTitle("Enrollment");
+        primaryStage.setScene(new Scene(root, 1280, 800));
+        primaryStage.show();
+    }
+     public static void showBillPage() throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainFX.class.getResource("BillFX.fxml"));
+        Parent root = loader.load();    
+        primaryStage.setTitle("Bill");
+        primaryStage.setScene(new Scene(root, 1280, 800));
+        primaryStage.show();
+    }
     public static void main(String[] args) {
         launch(args);
     }

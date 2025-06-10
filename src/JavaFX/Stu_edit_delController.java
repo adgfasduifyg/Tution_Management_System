@@ -31,6 +31,7 @@ public class Stu_edit_delController extends BaseMenuController {
     @FXML private TextField enterid;
     @FXML private Button stueditbtn;
     @FXML private Button studelbtn;
+    @FXML private Button stufindbyidbtn;
 
     private ObservableList<Student> students = FXCollections.observableArrayList();
 
@@ -85,15 +86,47 @@ public class Stu_edit_delController extends BaseMenuController {
 
         // Delete button logic
         studelbtn.setOnAction(e -> deleteSelectedStudent());
+
+        // Find by ID button logic
+        stufindbyidbtn.setOnAction(e -> findStudentById());
+    }
+
+    private void findStudentById() {
+        String id = enterid.getText().trim();
+        if (id.isEmpty()) {
+            feedback.setText("Please enter a student ID.");
+            return;
+        }
+        String sql = "SELECT * FROM Student WHERE Stu_ID = ?";
+        try (Connection conn = SQLConnector.getConnection();
+             java.sql.PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                entername.setText(rs.getString("Stu_Name"));
+                enterbirth.setText(rs.getDate("Stu_Birthdate").toLocalDate().toString());
+                entergender.setText(rs.getString("Stu_Gender"));
+                entermobile.setText(rs.getString("Stu_Mobile"));
+                feedback.setText("Student found.");
+            } else {
+                feedback.setText("No student found with ID: " + id);
+                entername.clear();
+                enterbirth.clear();
+                entergender.clear();
+                entermobile.clear();
+            }
+        } catch (Exception e) {
+            feedback.setText("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     private void editSelectedStudent() {
-        Student selected = studenttable.getSelectionModel().getSelectedItem();
-        if (selected == null) {
-            feedback.setText("Please select a student to edit.");
+        String id = enterid.getText().trim();
+        if (id.isEmpty()) {
+            feedback.setText("Please enter a student ID.");
             return;
         }
-        String id = enterid.getText().trim();
         String name = entername.getText().trim();
         String birth = enterbirth.getText().trim();
         String gender = entergender.getText().trim();
@@ -145,12 +178,11 @@ public class Stu_edit_delController extends BaseMenuController {
     }
 
     private void deleteSelectedStudent() {
-        Student selected = studenttable.getSelectionModel().getSelectedItem();
-        if (selected == null) {
-            feedback.setText("Please select a student to delete.");
+        String id = enterid.getText().trim();
+        if (id.isEmpty()) {
+            feedback.setText("Please enter a student ID.");
             return;
         }
-        String id = selected.getStu_ID();
         String sql = "DELETE FROM Student WHERE Stu_ID=?";
         try (Connection conn = SQLConnector.getConnection();
              java.sql.PreparedStatement pstmt = conn.prepareStatement(sql)) {

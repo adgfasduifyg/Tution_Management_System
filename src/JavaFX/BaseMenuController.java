@@ -92,6 +92,129 @@ public abstract class BaseMenuController {
             });
         }
 
+        if (delstaff != null || addstaff != null || editstaff != null || viewstaff != null) {
+            viewstaff.setOnAction(e -> {
+                try {
+                    MainFX.showAddStaffPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            addstaff.setOnAction(e -> {
+                try {
+                    MainFX.showAddStaffPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            editstaff.setOnAction(e -> {
+                try {
+                    MainFX.showAddStaffPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            delstaff.setOnAction(e -> {
+                try {
+                    MainFX.showAddStaffPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
+
+        if (viewclass != null || addclass != null || editclass != null || delclass != null) {
+            viewclass.setOnAction(e -> {
+                try {
+                    MainFX.showClassUI();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            addclass.setOnAction(e -> {
+                try {
+                    MainFX.showClassUI();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            editclass.setOnAction(e -> {
+                try {
+                    MainFX.showClassUI();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            delclass.setOnAction(e -> {
+                try {
+                    MainFX.showClassUI();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
+        if (viewenroll != null || addenroll != null || editenrol != null || delenroll != null) {
+            viewenroll.setOnAction(e -> {
+                try {
+                    MainFX.showEnrollmentPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            addenroll.setOnAction(e -> {
+                try {
+                    MainFX.showEnrollmentPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            editenrol.setOnAction(e -> {
+                try {
+                    MainFX.showEnrollmentPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            delenroll.setOnAction(e -> {
+                try {
+                    MainFX.showEnrollmentPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
+
+        if (viewbill != null || addbill != null || editbill != null || delbill != null) {
+            viewbill.setOnAction(e -> {
+                try {
+                    MainFX.showBillPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            addbill.setOnAction(e -> {
+                try {
+                    MainFX.showBillPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            editbill.setOnAction(e -> {
+                try {
+                    MainFX.showBillPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            delbill.setOnAction(e -> {
+                try {
+                    MainFX.showBillPage();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            
+        }
         // Add similar handlers for other menu items as needed
     }
 }

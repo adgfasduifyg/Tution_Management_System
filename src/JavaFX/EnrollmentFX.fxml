@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Stu_edit_delController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Class_UIController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="1280.0">
          <menus>
@@ -64,73 +64,21 @@
             </Menu>
          </menus>
       </MenuBar>
-      <AnchorPane prefHeight="825.0" prefWidth="1280.0">
+      <AnchorPane prefHeight="784.0" prefWidth="1280.0">
          <children>
-            <Label layoutX="123.0" layoutY="203.0" text="Student name">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <TextField fx:id="entername" layoutX="123.0" layoutY="233.0" promptText="ENTER NAME">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="381.0" layoutY="203.0" text="Student birthdate">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <TextField fx:id="enterbirth" layoutX="381.0" layoutY="233.0" promptText="ENTER BIRTHDATE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="657.0" layoutY="203.0" text="Student gender">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <TextField fx:id="entergender" layoutX="657.0" layoutY="233.0" promptText="ENTER GENDER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="978.0" layoutY="203.0" text="Student phone number">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
-            <TextField fx:id="entermobile" layoutX="984.0" layoutY="233.0" promptText="ENTER PHONE NUMBER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <TableView fx:id="studenttable" layoutX="58.0" layoutY="449.0" prefHeight="277.0" prefWidth="1165.0" />
-            <Label fx:id="totalstu" alignment="CENTER" layoutX="575.0" layoutY="87.0" text="Total student in database: ">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="505.0" layoutY="40.0" text="Student dashboard">
+            <Label layoutX="528.0" layoutY="40.0" text="Class dashboard">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
+            <Label fx:id="totalstaff" alignment="CENTER" layoutX="569.0" layoutY="87.0" text="Total class in database: ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="fulltable" layoutX="58.0" layoutY="449.0" prefHeight="277.0" prefWidth="1165.0" />
             <Label fx:id="feedback" layoutX="58.0" layoutY="432.0" text="Database feedback:" />
-            <Label layoutX="123.0" layoutY="306.0" text="Student ID">
+            <Label layoutX="58.0" layoutY="129.0" text="Name">
                <font>
                   <Font size="14.0" />
                </font>
@@ -138,26 +86,117 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </Label>
-            <TextField fx:id="enterid" layoutX="123.0" layoutY="336.0" promptText="ENTER ID">
+            <TextField fx:id="namefield" layoutX="58.0" layoutY="159.0" promptText="ENTER NAME">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="stueditbtn" layoutX="657.0" layoutY="336.0" mnemonicParsing="false" text="Edit student">
+            <Label layoutX="640.0" layoutY="129.0" text="Startdate">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="birthdatefiield" layoutX="640.0" layoutY="159.0" promptText="ENTER STARTDATE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="358.0" layoutY="129.0" text="Level">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="genderfield" layoutX="358.0" layoutY="159.0" promptText="ENTER LEVEL">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="891.0" layoutY="258.0" text="TeacherID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="mobilefield" layoutX="891.0" layoutY="288.0" promptText="ENTER TEACHERID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="58.0" layoutY="258.0" text="ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="idfield" layoutX="58.0" layoutY="288.0" promptText="ENTER ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="findbtn" layoutX="358.0" layoutY="284.0" mnemonicParsing="false" text="Find">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="studelbtn" layoutX="861.0" layoutY="336.0" mnemonicParsing="false" text="Delete student">
+            <Button fx:id="editbtn" layoutX="512.0" layoutY="284.0" mnemonicParsing="false" text="Edit">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="stufindbyidbtn" layoutX="450.0" layoutY="336.0" mnemonicParsing="false" text="Find by ID">
+            <Button fx:id="delbtn" layoutX="658.0" layoutY="284.0" mnemonicParsing="false" text="Delete">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
+            <Label layoutX="891.0" layoutY="129.0" text="Enddate">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="Enddate" layoutX="891.0" layoutY="159.0" promptText="ENTER ENDDATE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="891.0" layoutY="358.0" text="Max number of student">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="capacity" layoutX="891.0" layoutY="388.0" promptText="ENTER CAPACITY">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="58.0" layoutY="358.0" text="Fee">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="fee" layoutX="58.0" layoutY="388.0" promptText="ENTER FEE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </children>
