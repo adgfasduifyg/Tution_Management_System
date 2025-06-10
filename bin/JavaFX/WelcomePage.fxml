@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.WelcomeController">
+    <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1280.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="sessout" mnemonicParsing="false" text="Logout" />
+                  <MenuItem fx:id="progquit" mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Student">
+               <items>
+                  <MenuItem fx:id="viewstudent" mnemonicParsing="false" text="View All Students" />
+                  <MenuItem fx:id="addstudent" mnemonicParsing="false" text="Add Student" />
+                  <MenuItem fx:id="editstudent" mnemonicParsing="false" text="Edit Student" />
+                  <MenuItem fx:id="delstudent" mnemonicParsing="false" text="Delete Student" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Staff">
+               <items>
+                  <MenuItem fx:id="viewstaff" mnemonicParsing="false" text="View All Staff" />
+                  <MenuItem fx:id="addstaff" mnemonicParsing="false" text="Add Staff" />
+                  <MenuItem fx:id="editstaff" mnemonicParsing="false" text="Edit Staff" />
+                  <MenuItem fx:id="delstaff" mnemonicParsing="false" text="Delete Staff" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Class">
+               <items>
+                  <MenuItem fx:id="viewclass" mnemonicParsing="false" text="View All Classes" />
+                  <MenuItem fx:id="addclass" mnemonicParsing="false" text="Add Class" />
+                  <MenuItem fx:id="editclass" mnemonicParsing="false" text="Edit Class" />
+                  <MenuItem fx:id="delclass" mnemonicParsing="false" text="Delete Class" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Enrollment">
+               <items>
+                  <MenuItem fx:id="viewenroll" mnemonicParsing="false" text="View All Enrollments" />
+                  <MenuItem fx:id="addenroll" mnemonicParsing="false" text="Add Enrollment" />
+                  <MenuItem fx:id="editenrol" mnemonicParsing="false" text="Edit Enrollment" />
+                  <MenuItem fx:id="delenroll" mnemonicParsing="false" text="Delete Enrollment" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Bill">
+               <items>
+                  <MenuItem fx:id="viewbill" mnemonicParsing="false" text="View All Bills" />
+                  <MenuItem fx:id="addbill" mnemonicParsing="false" text="Add Bill" />
+                  <MenuItem fx:id="editbill" mnemonicParsing="false" text="Edit Bill" />
+                  <MenuItem fx:id="delbill" mnemonicParsing="false" text="Delete Bill" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+        <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="477.0" layoutY="40.0" text="Information dashboard">
+            <font>
+                <Font size="32.0" />
+            </font>
+        </Label>
+        <Label fx:id="studentCountLabel" layoutX="122.0" layoutY="247.0" text="Total Students: 0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="teacherCountLabel" layoutX="554.0" layoutY="247.0" text="Total Teachers: 0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="activeClassCountLabel" layoutX="968.0" layoutY="247.0" text="Active Classes: 0">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+      <TableView fx:id="totalstudentdetail" layoutX="57.0" layoutY="318.0" prefHeight="424.0" prefWidth="340.0">
+      </TableView>
+      <TableView fx:id="totalteacherdetail" layoutX="473.0" layoutY="318.0" prefHeight="424.0" prefWidth="340.0">
+      </TableView>
+      <TableView fx:id="totalclassdetail" layoutX="884.0" layoutY="318.0" prefHeight="424.0" prefWidth="340.0">
+      </TableView>
+      <TableView fx:id="accountdetail" layoutX="143.0" layoutY="148.0" prefHeight="50.0" prefWidth="1000.0">
+      </TableView>
+      <Label layoutX="143.0" layoutY="121.0" text="Your account detail">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Hyperlink id="StaffDetailChanging" fx:id="StaffDetailChanging" layoutX="318.0" layoutY="122.0" onAction="#onHyperlinkClick" text="Change your account detail">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+    </children>
+</AnchorPane>
