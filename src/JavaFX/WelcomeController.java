@@ -26,7 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 @SuppressWarnings({"unused" , "unchecked"})
 
 
-public class WelcomeController {
+public class WelcomeController extends BaseMenuController {
     @FXML
     private Label studentCountLabel;
     @FXML
@@ -46,13 +46,44 @@ public class WelcomeController {
     @FXML
     private Hyperlink StaffDetailChanging;
 
-    @FXML
-    private MenuItem addstudent; // Add this if not already present
+    // File menu
+    @FXML private MenuItem sessout;
+    @FXML private MenuItem progquit;
 
-    
+    // Student menu
+    @FXML private MenuItem viewstudent;
+    @FXML private MenuItem addstudent;
+    @FXML private MenuItem editstudent;
+    @FXML private MenuItem delstudent;
+
+    // Staff menu
+    @FXML private MenuItem viewstaff;
+    @FXML private MenuItem addstaff;
+    @FXML private MenuItem editstaff;
+    @FXML private MenuItem delstaff;
+
+    // Class menu
+    @FXML private MenuItem viewclass;
+    @FXML private MenuItem addclass;
+    @FXML private MenuItem editclass;
+    @FXML private MenuItem delclass;
+
+    // Enrollment menu
+    @FXML private MenuItem viewenroll;
+    @FXML private MenuItem addenroll;
+    @FXML private MenuItem editenrol;
+    @FXML private MenuItem delenroll;
+
+    // Bill menu
+    @FXML private MenuItem viewbill;
+    @FXML private MenuItem addbill;
+    @FXML private MenuItem editbill;
+    @FXML private MenuItem delbill;
 
     @FXML
     public void initialize() {
+        // Initialize menu bar
+        this.initializeMenuBar();
         try (Connection conn = SQLConnector.getConnection();
              Statement stmt = conn.createStatement()) {
 

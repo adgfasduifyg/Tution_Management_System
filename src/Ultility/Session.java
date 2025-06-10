@@ -10,4 +10,8 @@ public class Session {
     public static String getCurrentStaffID() {
         return currentStaffID;
     }
+
+    public static void clearSession() {
+        currentStaffID = null;
+    }
 }

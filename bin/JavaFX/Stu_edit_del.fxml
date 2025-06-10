@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Stu_edit_delController">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="1280.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="sessout" mnemonicParsing="false" text="Logout" />
+                  <MenuItem fx:id="progquit" mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Student">
+               <items>
+                  <MenuItem fx:id="viewstudent" mnemonicParsing="false" text="View All Students" />
+                  <MenuItem fx:id="addstudent" mnemonicParsing="false" text="Add Student" />
+                  <MenuItem fx:id="editstudent" mnemonicParsing="false" text="Edit Student" />
+                  <MenuItem fx:id="delstudent" mnemonicParsing="false" text="Delete Student" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Staff">
+               <items>
+                  <MenuItem fx:id="viewstaff" mnemonicParsing="false" text="View All Staff" />
+                  <MenuItem fx:id="addstaff" mnemonicParsing="false" text="Add Staff" />
+                  <MenuItem fx:id="editstaff" mnemonicParsing="false" text="Edit Staff" />
+                  <MenuItem fx:id="delstaff" mnemonicParsing="false" text="Delete Staff" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Class">
+               <items>
+                  <MenuItem fx:id="viewclass" mnemonicParsing="false" text="View All Classes" />
+                  <MenuItem fx:id="addclass" mnemonicParsing="false" text="Add Class" />
+                  <MenuItem fx:id="editclass" mnemonicParsing="false" text="Edit Class" />
+                  <MenuItem fx:id="delclass" mnemonicParsing="false" text="Delete Class" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Enrollment">
+               <items>
+                  <MenuItem fx:id="viewenroll" mnemonicParsing="false" text="View All Enrollments" />
+                  <MenuItem fx:id="addenroll" mnemonicParsing="false" text="Add Enrollment" />
+                  <MenuItem fx:id="editenrol" mnemonicParsing="false" text="Edit Enrollment" />
+                  <MenuItem fx:id="delenroll" mnemonicParsing="false" text="Delete Enrollment" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Bill">
+               <items>
+                  <MenuItem fx:id="viewbill" mnemonicParsing="false" text="View All Bills" />
+                  <MenuItem fx:id="addbill" mnemonicParsing="false" text="Add Bill" />
+                  <MenuItem fx:id="editbill" mnemonicParsing="false" text="Edit Bill" />
+                  <MenuItem fx:id="delbill" mnemonicParsing="false" text="Delete Bill" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="825.0" prefWidth="1280.0">
+         <children>
+            <Label layoutX="123.0" layoutY="203.0" text="Student name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="entername" layoutX="123.0" layoutY="233.0" promptText="ENTER NAME">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="381.0" layoutY="203.0" text="Student birthdate">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="enterbirth" layoutX="381.0" layoutY="233.0" promptText="ENTER BIRTHDATE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="657.0" layoutY="203.0" text="Student gender">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="entergender" layoutX="657.0" layoutY="233.0" promptText="ENTER GENDER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="978.0" layoutY="203.0" text="Student phone number">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="entermobile" layoutX="984.0" layoutY="233.0" promptText="ENTER PHONE NUMBER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TableView fx:id="studenttable" layoutX="58.0" layoutY="449.0" prefHeight="277.0" prefWidth="1165.0" />
+            <Label fx:id="totalstu" alignment="CENTER" layoutX="575.0" layoutY="87.0" text="Total student in database: ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="505.0" layoutY="40.0" text="Student dashboard">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="feedback" layoutX="58.0" layoutY="432.0" text="Database feedback:" />
+            <Label layoutX="123.0" layoutY="306.0" text="Student ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="enterid" layoutX="123.0" layoutY="336.0" promptText="ENTER ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="stueditbtn" layoutX="657.0" layoutY="336.0" mnemonicParsing="false" text="Edit student">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="studelbtn" layoutX="861.0" layoutY="336.0" mnemonicParsing="false" text="Delete student">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

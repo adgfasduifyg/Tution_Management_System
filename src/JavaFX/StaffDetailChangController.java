@@ -24,7 +24,7 @@ import java.time.LocalDate;
 
 // password123
 
-public class StaffDetailChangController {
+public class StaffDetailChangController extends BaseMenuController {
 
     @FXML
     private TableView<Staff> StaffDetailBefore; // Change from Student to Staff
@@ -57,8 +57,13 @@ public class StaffDetailChangController {
     @FXML
     private Label feedback;
 
+    public void setfeedbackblank() {
+        feedback.setText("");
+    }
+
     @FXML
     public void initialize() {
+        this.initializeMenuBar();
         try (Connection conn = SQLConnector.getConnection();
              Statement stmt = conn.createStatement()) {
             ObservableList<Staff> staffList = FXCollections.observableArrayList();
@@ -76,11 +81,22 @@ public class StaffDetailChangController {
                 );
                 staffList.add(staff);
             }
+            // Fetch and display current password
+            ResultSet rsPwd = stmt.executeQuery("SELECT Login_Password FROM LOGIN WHERE Staff_ID = '" + staffID + "'");
+            if (rsPwd.next()) {
+                currentpassword.setText(rsPwd.getString("Login_Password"));
+            } else {
+                currentpassword.setText("");
+            }
             setupStaffTable();
             StaffDetailBefore.setItems(staffList);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        
+        applychanges.setOnAction(event -> applyChangesToStaff());
+        
     }
 
     private void setupStaffTable() {
@@ -109,7 +125,7 @@ public class StaffDetailChangController {
     @FXML
     private void applyChangesToStaff() {
         String staffID = Session.getCurrentStaffID();
-        String currPassword = currentpassword.getText();
+        
         String newName = newname.getText();
         String newMobile = newmobile.getText();
         String newBirthdate = newbirthdate.getText();
@@ -118,10 +134,6 @@ public class StaffDetailChangController {
 
         feedback.setText(""); // Clear previous feedback
 
-        if (currPassword == null || currPassword.isEmpty()) {
-            feedback.setText("Please enter your current password.");
-            return;
-        }
 
         // Optional: Validate mobile number format
         if (!newMobile.isEmpty() && (!newMobile.matches("0\\d{9}"))) {
@@ -146,21 +158,10 @@ public class StaffDetailChangController {
             }
         }
 
+        
+
         try (Connection conn = SQLConnector.getConnection();
              Statement stmt = conn.createStatement()) {
-
-            // Check current password
-            ResultSet rs = stmt.executeQuery("SELECT Login_Password FROM LOGIN WHERE Staff_ID = '" + staffID + "'");
-            if (rs.next()) {
-                String dbPassword = rs.getString("Login_Password");
-                if (!currPassword.equals(dbPassword)) {
-                    feedback.setText("Current password is incorrect.");
-                    return;
-                }
-            } else {
-                feedback.setText("User not found.");
-                return;
-            }
 
             // Build update query dynamically
             StringBuilder updateStaff = new StringBuilder("UPDATE Staff SET ");
@@ -182,11 +183,12 @@ public class StaffDetailChangController {
             if (!newGender.isEmpty()) {
                 if (needComma) updateStaff.append(", ");
                 updateStaff.append("Staff_Gender = '").append(newGender).append("'");
+                needComma = true;
             }
-            updateStaff.append(" WHERE Staff_ID = '").append(staffID).append("'");
 
             // Only update if at least one field is filled
-            if (updateStaff.toString().contains("=")) {
+            if (needComma) {
+                updateStaff.append(" WHERE Staff_ID = '").append(staffID).append("'");
                 stmt.executeUpdate(updateStaff.toString());
             }
 
@@ -195,8 +197,7 @@ public class StaffDetailChangController {
                 stmt.executeUpdate("UPDATE LOGIN SET Login_Password = '" + newPassword + "' WHERE Staff_ID = '" + staffID + "'");
             }
 
-            welcomeLabel.setText("Information updated successfully!");
-            feedback.setText(""); // Clear feedback on success
+            feedback.setText("Information updated successfully!");
             initialize(); // Refresh table
 
         } catch (Exception e) {

@@ -27,7 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 @SuppressWarnings({"unused" , "unchecked"})
 
-public class Stu_addController {
+public class Stu_addController extends BaseMenuController {
     @FXML
     private TableView<Student> studenttable;
 
@@ -93,6 +93,7 @@ public class Stu_addController {
 
     @FXML
     public void initialize() {
+        this.initializeMenuBar();
         System.out.println("Initializing Stu_addController...");
         try (Connection conn = SQLConnector.getConnection();
             Statement stmt = conn.createStatement()) {

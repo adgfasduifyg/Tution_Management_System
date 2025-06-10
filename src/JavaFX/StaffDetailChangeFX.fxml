@@ -155,7 +155,7 @@
                </font>
             </TextField>
             <Label layoutX="104.0" layoutY="415.0" text="Current password" />
-            <Button fx:id="applychanges" layoutX="542.0" layoutY="605.0" mnemonicParsing="false" text="Apply changes" onAction="#applyChangesToStaff">
+            <Button fx:id="applychanges" layoutX="542.0" layoutY="605.0" mnemonicParsing="false" text="Apply changes">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
